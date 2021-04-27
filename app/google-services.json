@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1068528145305",
+    "project_id": "e-sneaker-d1f9b",
+    "storage_bucket": "e-sneaker-d1f9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068528145305:android:dee55333729ded3e66b908",
+        "android_client_info": {
+          "package_name": "com.example.e_sneaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068528145305-g525s4qdn0uk73qr2f7p7b5krbfgsv0j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeH5vA9JgOXbUCoR0KDxVXf50yXRMuppg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068528145305-g525s4qdn0uk73qr2f7p7b5krbfgsv0j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
