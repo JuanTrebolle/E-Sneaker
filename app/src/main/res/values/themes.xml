@@ -13,4 +13,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Splash Screen -->
+    <!-- Created this new theme to designate the splash screen, which will inherit from the default
+    theme used in the app, that will use the splashscreen created in @drawable -->
+    <style name="SplashTheme" parent="Theme.ESneaker">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
 </resources>
