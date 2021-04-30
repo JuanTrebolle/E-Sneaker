@@ -1,15 +1,15 @@
 package com.example.e_sneaker;
 
 public class Sneaker {
+    private int sneakerID;
     private String modelName;
     private String brand;
     private double price;
     private String description; //not sure about this
 
-    public Sneaker(String modelName, String brand, double price) {
+    public Sneaker(String modelName, int sneakerID) {
         this.modelName = modelName;
-        this.brand = brand;
-        this.price = price;
+        this.sneakerID = sneakerID;
     }
 
     public String getModelName() {
