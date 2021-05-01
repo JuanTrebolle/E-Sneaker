@@ -41,11 +41,23 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.search){
             //TODO: call viewModel to search specific shoe
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
-        } else if (itemId == R.id.profile){
+        } if (itemId == R.id.shoppingCart){
+            //TODO: call viewModel to go to shopping cart activity
+            //TODO: add a ancestral/up navigation button in shopping cart activity
+            //TODO: add ancestral button in shopping cart activity
+            /*
+             * For adding ancestral button:
+             *   1. In the activity xml file, add android:parentActivityName=".MainActivity"
+             *   2. Add in the java file: getSupportActionBar().setDisplayHomeAsUpEnabled(true)
+             * */
+            Toast.makeText(this, "Shopping Cart", Toast.LENGTH_SHORT).show();
+        }else if (itemId == R.id.profile){
             //TODO: call viewModel to enter profile settings
+            //TODO: when in the profile/settings activity, add a ancestral/up navigation button
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.settings){
             //TODO: call viewModel to enter settings
+            //TODO: when in the settings activity, add a ancestral/up navigation button
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);

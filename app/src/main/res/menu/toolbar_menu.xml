@@ -8,6 +8,12 @@
         android:icon="@drawable/ic_search"/>
 
     <item
+        android:id="@+id/shoppingCart"
+        android:title="Shopping Cart"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_shopping_cart"/>
+
+    <item
         android:id="@+id/profile"
         android:title="Profile"/>
     <item
