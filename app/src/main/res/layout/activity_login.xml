@@ -51,6 +51,7 @@
         android:hint="E-mail"
         android:inputType="textPersonName"
         android:padding="16dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -71,12 +72,14 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="16dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
     <Button
         android:id="@+id/loginButton"
+        android:onClick="login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -143,6 +146,7 @@
 
     <TextView
         android:id="@+id/goToResgister"
+        android:onClick="register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
