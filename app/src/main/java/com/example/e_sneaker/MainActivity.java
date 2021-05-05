@@ -3,16 +3,23 @@ package com.example.e_sneaker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //SPLASH-THEME
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -26,6 +33,36 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar); // With this the app crashes
+
+        //Set the inital fragment to Store-fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayoutFragment, new Cart_Fragment());
+        transaction.commit();
+
+        //Bottom Navigation View
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
+        /*toCartFragmentButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                //Set fragment to Cart-fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frameLayoutFragment, new CartFragment());
+                transaction.commit();
+            }
+        });*/
+
+        /*toStoreFragmentButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                //Set fragment to Store-fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frameLayoutFragment, new StoreFragment());
+                transaction.commit();
+            }
+        });*/
     }
 
     @Override
