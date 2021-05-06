@@ -6,14 +6,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
+    private static final String TAG = "MainActivity";
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //SPLASH-THEME
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar); // With this the app crashes
+        setSupportActionBar(toolbar); // With this the app crashes
 
         //Set the inital fragment to Store-fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -42,27 +44,9 @@ public class MainActivity extends AppCompatActivity {
         //Bottom Navigation View
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
 
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        //bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        /*toCartFragmentButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //Set fragment to Cart-fragment
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameLayoutFragment, new CartFragment());
-                transaction.commit();
-            }
-        });*/
-
-        /*toStoreFragmentButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //Set fragment to Store-fragment
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameLayoutFragment, new StoreFragment());
-                transaction.commit();
-            }
-        });*/
     }
 
     @Override
@@ -80,23 +64,40 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
         } if (itemId == R.id.shoppingCart){
             //TODO: call viewModel to go to shopping cart activity
-            //TODO: add a ancestral/up navigation button in shopping cart activity
             //TODO: add ancestral button in shopping cart activity
-            /*
-             * For adding ancestral button:
-             *   1. In the activity xml file, add android:parentActivityName=".MainActivity"
-             *   2. Add in the java file: getSupportActionBar().setDisplayHomeAsUpEnabled(true)
-             * */
             Toast.makeText(this, "Shopping Cart", Toast.LENGTH_SHORT).show();
         }else if (itemId == R.id.profile){
             //TODO: call viewModel to enter profile settings
-            //TODO: when in the profile/settings activity, add a ancestral/up navigation button
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.settings){
             //TODO: call viewModel to enter settings
-            //TODO: when in the settings activity, add a ancestral/up navigation button
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    Store_Fragment store_fragment = new Store_Fragment();
+    FireSneakers_Fragment fireSneakers_fragment = new FireSneakers_Fragment();
+    Cart_Fragment cart_fragment = new Cart_Fragment();
+    Profile_Fragment profile_fragment = new Profile_Fragment();
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.nav_home){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutFragment, new Store_Fragment()).commit();
+            return true;
+        } else if (item.getItemId() == R.id.nav_fire){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutFragment, new FireSneakers_Fragment()).commit();
+            return true;
+        } else if (item.getItemId() == R.id.nav_cart){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutFragment, new Cart_Fragment()).commit();
+            return true;
+        } else if (item.getItemId() == R.id.nav_profile){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutFragment, new Profile_Fragment()).commit();
+            return true;
+        }
+
+        Log.i(TAG, "onNavigationItemSelected: " + item.toString());
+        return false; // If true means the item selected has been handled
     }
 }
