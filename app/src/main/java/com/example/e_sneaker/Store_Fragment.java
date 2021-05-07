@@ -71,7 +71,7 @@ public class Store_Fragment extends Fragment {
         //TODO: populate list sneakersNames
         sneakers = new ArrayList<>();
 
-        storeAdapter = new StoreAdapter(getContext(), sneakers);
+        storeAdapter = new StoreAdapter(sneakers);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
         recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size
         recyclerView.setAdapter(storeAdapter);

@@ -3,10 +3,14 @@ package com.example.e_sneaker;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FireSneakers_Fragment extends Fragment {
+    RecyclerView rv_fire;
+    List<Sneaker> sneakers;
+    FireSneakersAdapter fireSneakersAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +65,17 @@ public class FireSneakers_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fire_sneakers, container, false);
+        View view = inflater.inflate(R.layout.fragment_store, container, false);
+
+        rv_fire = view.findViewById(R.id.rv_fire);
+        rv_fire.hasFixedSize();
+        rv_fire.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        //TODO:populate the sneakers list
+
+        fireSneakersAdapter = new FireSneakersAdapter(sneakers);
+        rv_fire.setAdapter(fireSneakersAdapter);
+
+        return view;
     }
 }

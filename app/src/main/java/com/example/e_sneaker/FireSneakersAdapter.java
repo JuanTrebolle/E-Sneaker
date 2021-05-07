@@ -1,9 +1,9 @@
 package com.example.e_sneaker;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,32 +12,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
+public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapter.ViewHolder> {
     private List<Sneaker> sneakers;
 
-    /*Constructor made so that I can pass some data from an activity and bind that data to the
-    customGridLayout(in the fragment)*/
-    public StoreAdapter(List<Sneaker> sneakers) {
+    public FireSneakersAdapter(List<Sneaker> sneakers) {
         this.sneakers = sneakers;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Layout inflator that is going to bind the custom layout file to the recycler view
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.custom_grid_layout, parent, false);
-        return new ViewHolder(view);
+        View view = inflater.inflate(R.layout.sneaker_list_item, parent, false);
+        return new FireSneakersAdapter.ViewHolder(view);
     }
 
+    //Binds the data to the view
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.sneakerName.setText(sneakers.get(position).getModelName());
         holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
+        holder.sneakerName.setText(sneakers.get(position).getModelName());
         holder.sneakerPrice.setText((int) sneakers.get(position).getPrice());
-
-        //TODO: when clicking the fire, add to fireList
-        // TODO: when clicking the cart, add to cartList
     }
 
     @Override
@@ -49,16 +44,14 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        ImageView addToFireList;
-        ImageView addToCartList;
+        Button deleteFromFire;
 
         ViewHolder(View itemView){
             super(itemView);
             sneakerName = itemView.findViewById(R.id.sneakerName);
             sneakerImage = itemView.findViewById(R.id.sneakerImage);
             sneakerPrice = itemView.findViewById(R.id.sneakerPrice);
-            addToFireList = itemView.findViewById(R.id.addToFireList);
-            addToCartList = itemView.findViewById(R.id.addToCartList);
+            deleteFromFire = itemView.findViewById(R.id.itemDeleteFromFire);
         }
     }
 }
