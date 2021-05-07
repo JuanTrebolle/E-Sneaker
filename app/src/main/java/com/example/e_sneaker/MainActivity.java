@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             e.printStackTrace();
         }
         /*I'll use SplashTheme in the moment that the app is loading, and the default theme(ESneaker)
-        * when it's already loaded*/
+         * when it's already loaded*/
         setTheme(R.style.Theme_ESneaker);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,9 +46,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         //Bottom Navigation View
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        //bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        //bottomNavigationView.setSelectedItemId(R.id.nav_home); the first item selected by default
 
     }
 
@@ -75,11 +77,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
         return super.onOptionsItemSelected(item);
     }
-
-    Store_Fragment store_fragment = new Store_Fragment();
-    FireSneakers_Fragment fireSneakers_fragment = new FireSneakers_Fragment();
-    Cart_Fragment cart_fragment = new Cart_Fragment();
-    Profile_Fragment profile_fragment = new Profile_Fragment();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
