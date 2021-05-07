@@ -25,6 +25,10 @@ public class Store_Fragment extends Fragment {
     List<Sneaker> sneakers;
     StoreAdapter storeAdapter;
 
+    public Store_Fragment(){
+        //Required empty constructor
+    }
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,7 +72,7 @@ public class Store_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_store, container, false);
         recyclerView = view.findViewById(R.id.rv_store);
 
-        //TODO: populate list sneakersNames
+        //TODO: populate list sneakers
         sneakers = new ArrayList<>();
 
         storeAdapter = new StoreAdapter(sneakers);
