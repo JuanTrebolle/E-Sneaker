@@ -21,9 +21,8 @@ import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
  * create an instance of this fragment.
  */
 public class Store_Fragment extends Fragment {
-    RecyclerView storeList;
-    List<String> sneakersNames;
-    List<Integer> sneakersImages;
+    RecyclerView recyclerView;
+    List<Sneaker> sneakers;
     StoreAdapter storeAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -34,10 +33,6 @@ public class Store_Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public Store_Fragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -59,6 +54,7 @@ public class Store_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -70,17 +66,15 @@ public class Store_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store, container, false);
-        storeList = view.findViewById(R.id.store_list);
+        recyclerView = view.findViewById(R.id.store_list);
 
         //TODO: populate list sneakersNames
-        sneakersNames = new ArrayList<>();
-        // TODO: populate list sneakersImages
-        sneakersImages = new ArrayList<>();
+        sneakers = new ArrayList<>();
 
-        storeAdapter = new StoreAdapter(getContext(), sneakersNames, sneakersImages);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, VERTICAL, false);
-        storeList.setLayoutManager(gridLayoutManager);
-        storeList.setAdapter(storeAdapter);
+        storeAdapter = new StoreAdapter(getContext(), sneakers);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
+        recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size
+        recyclerView.setAdapter(storeAdapter);
 
         return view;
     }

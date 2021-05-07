@@ -27,4 +27,8 @@ public class Sneaker {
     public String getDescription() {
         return description;
     }
+
+    public int getImage() { //not sure about the image type
+        return 0;
+    }
 }
