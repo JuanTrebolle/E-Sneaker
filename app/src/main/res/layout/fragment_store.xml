@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/store_list"
+        android:id="@+id/rv_store"
         android:layout_width="0dp"
         android:layout_height="0dp" />
 

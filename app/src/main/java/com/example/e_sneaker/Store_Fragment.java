@@ -66,7 +66,7 @@ public class Store_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store, container, false);
-        recyclerView = view.findViewById(R.id.store_list);
+        recyclerView = view.findViewById(R.id.rv_store);
 
         //TODO: populate list sneakersNames
         sneakers = new ArrayList<>();
