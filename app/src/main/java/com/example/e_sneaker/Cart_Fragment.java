@@ -6,6 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -13,6 +21,9 @@ import androidx.fragment.app.Fragment;
  * create an instance of this fragment.
  */
 public class Cart_Fragment extends Fragment {
+    RecyclerView recyclerView;
+    List<Sneaker> sneakers; //TODO: change for CartViewModel
+    CartAdapter cartAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +68,17 @@ public class Cart_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store, container, false);
+        View view = inflater.inflate(R.layout.fragment_store, container, false);
+
+        recyclerView = view.findViewById(R.id.rv_fire);
+        recyclerView.hasFixedSize();
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        //TODO:populate the sneakers list
+
+        cartAdapter = new CartAdapter(sneakers);
+        recyclerView.setAdapter(cartAdapter);
+
+        return view;
     }
 }

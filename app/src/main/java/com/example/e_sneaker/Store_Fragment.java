@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
  */
 public class Store_Fragment extends Fragment {
     RecyclerView recyclerView;
+    StoreViewModel storeViewModel;
     List<Sneaker> sneakers;
     StoreAdapter storeAdapter;
 
@@ -79,6 +81,7 @@ public class Store_Fragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
         recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size
         recyclerView.setAdapter(storeAdapter);
+
 
         return view;
     }

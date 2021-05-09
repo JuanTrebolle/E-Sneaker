@@ -51,7 +51,7 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
             sneakerName = itemView.findViewById(R.id.sneakerName);
             sneakerImage = itemView.findViewById(R.id.sneakerImage);
             sneakerPrice = itemView.findViewById(R.id.sneakerPrice);
-            deleteFromFire = itemView.findViewById(R.id.itemDeleteFromFire);
+            deleteFromFire = itemView.findViewById(R.id.itemDelete);
         }
     }
 }
