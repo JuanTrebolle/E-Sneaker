@@ -8,16 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
+    //private MutableLiveData<List<Sneaker>> sneakers;
     private List<Sneaker> sneakers;
 
     /*Constructor made so that I can pass some data from an activity and bind that data to the
     customGridLayout(in the fragment)*/
-    public StoreAdapter(List<Sneaker> sneakers) {
+    public StoreAdapter(/*MutableLiveData<List<Sneaker>>*/List<Sneaker> sneakers) {
         this.sneakers = sneakers;
     }
 
@@ -33,11 +35,15 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
+        holder.sneakerImage.setImageResource(Integer.parseInt(sneakers.get(position).getImage())); // not sure about the parse
         holder.sneakerPrice.setText((int) sneakers.get(position).getPrice());
 
-        //TODO: when clicking the fire, add to fireList
-        // TODO: when clicking the cart, add to cartList
+        //holder.sneakerName.setText(sneakers.getValue().get(position).getModelName());
+        //holder.sneakerPrice.setText((int) sneakers.getValue().get(position).getPrice());
+        //holder.sneakerImage.setImageResource(sneakers.getValue().get(position).getImage().);
+
+        //TODO: when clicking the fire, add to fireList with an observer
+        // TODO: when clicking the cart, add to cartList with an observer
     }
 
     @Override
