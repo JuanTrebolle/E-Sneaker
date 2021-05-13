@@ -11,7 +11,6 @@ public class Sneaker {
     private String modelName;
     private String brand;
     private double price;
-    private String description; //probably not gonna use.
     private String imageUrl;
 
     public Sneaker(long sneakerID, String modelName, double price, String brand, String imageUrl) {
