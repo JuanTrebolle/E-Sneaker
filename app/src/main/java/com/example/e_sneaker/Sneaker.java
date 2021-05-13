@@ -1,14 +1,29 @@
 package com.example.e_sneaker;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+//@Entity(tableName = "sneaker_table")
 public class Sneaker {
-    private int sneakerID;
+    //@PrimaryKey(autoGenerate = true)
+    private long sneakerID;
     private String modelName;
     private String brand;
     private double price;
-    private String description; //not sure about this
+    private String description; //probably not gonna use.
+    private String imageUrl;
 
-    public Sneaker(String modelName, int sneakerID) {
+    public Sneaker(long sneakerID, String modelName, double price, String brand, String imageUrl) {
         this.modelName = modelName;
+        this.sneakerID = sneakerID;
+    }
+
+    public long getSneakerID() {
+        return sneakerID;
+    }
+
+    public void setSneakerID(int sneakerID) {
         this.sneakerID = sneakerID;
     }
 
@@ -24,11 +39,8 @@ public class Sneaker {
         return price;
     }
 
-    public String getDescription() {
-        return description;
-    } //probably not gonna use.
-
-    public int getImage() { //not sure about the image type
-        return 0;
+    //@ColumnInfo(typeAffinity = ColumnInfo.BLOB) // BLOB is used to store image data into the db.
+    public String getImage() { //not sure about the image type
+        return imageUrl;
     }
 }
