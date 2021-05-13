@@ -1,22 +1,26 @@
 package com.example.e_sneaker;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.List;
 
+//@Entity(tableName = "user_table")
 public class User {
-    private int userID;
+    //@PrimaryKey(autoGenerate = true)
+    private long userID;
     private String name;
     private String lastName;
     private String email;
-    // TODO: how to manage password??
     private int shoeSize;
-    private List<Sneaker> favoriteSneakers;
+    private List<Sneaker> fireSneakers;
     private List<Sneaker> cartSneakers;
 
     public User(int userID) {
         this.userID = userID;
     }
 
-    public int getUserID() {
+    public long getUserID() {
         return userID;
     }
 
@@ -57,10 +61,18 @@ public class User {
     }
 
     public List<Sneaker> getFavoriteSneakers() {
-        return favoriteSneakers;
+        return fireSneakers;
+    }
+
+    public void setFavoriteSneakers(List<Sneaker> favoriteSneakers) {
+        this.fireSneakers = favoriteSneakers;
     }
 
     public List<Sneaker> getCartSneakers() {
         return cartSneakers;
+    }
+
+    public void setCartSneakers(List<Sneaker> cartSneakers) {
+        this.cartSneakers = cartSneakers;
     }
 }
