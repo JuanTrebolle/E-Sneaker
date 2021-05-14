@@ -43,12 +43,12 @@ public class SneakerRepository implements Repository{
         return instance;
     }
 
-    public MutableLiveData<List<Sneaker>> getAllSneakers(){
+    /*public MutableLiveData<List<Sneaker>> getAllSneakers(){
         return allSneakers;
-    }
+    }*/
 
     public void requestAllSneakers(){
-        Call<List<Sneaker>> call = sneakersApi.getAllSneakers(100);
+        Call<List<Sneaker>> call = sneakersApi.getAllSneakers(100); //requesting 100 sneakers
         call.enqueue(new Callback<List<Sneaker>>() {
             @Override
             public void onResponse(Call<List<Sneaker>> call, Response<List<Sneaker>> response) {
@@ -67,29 +67,34 @@ public class SneakerRepository implements Repository{
         //return (List<Sneaker>) allSneakers;
     }
 
-    public MutableLiveData<List<Sneaker>> getSneakersByBrand(){
-        return sneakersByBrand;
-    }
+    /*public MutableLiveData<List<Sneaker>> getSneakersByBrand(String brand){
+        //TODO
+        for (Sneaker item : allSneakers.getValue()) {
 
-    /*public List<Sneaker> requestSneakersByBrand(String brand){
-        Call<SneakerResponse> call = sneakersApi.getSneakersByBrand(brand);
-        call.enqueue(new Callback<SneakerResponse>() {
+        }
+        return sneakersByBrand;
+    }*/
+
+    public List<Sneaker> requestSneakersByBrand(String brand){
+        Call<List<Sneaker>> call = sneakersApi.getSneakersByBrand(brand);
+        call.enqueue(new Callback<List<Sneaker>>() {
             @Override
-            public void onResponse(Call<SneakerResponse> call, Response<SneakerResponse> response) {
+            public void onResponse(Call<List<Sneaker>> call, Response<List<Sneaker>> response) {
                 if (response.code() == 200){
                     //sneakersByBrand = response.body().getSneakersByBrand(brand);
+                    sneakersByBrand.setValue(response.body());
                 }
             }
 
             @Override
-            public void onFailure(Call<SneakerResponse> call, Throwable t) {
+            public void onFailure(Call<List<Sneaker>> call, Throwable t) {
                 Log.i("Retrofit", "Something went wrong :(");
                 Log.i("Retrofit", t.getMessage());
                 t.printStackTrace();
             }
         });
         return null;
-    }*/
+    }
 
     public Sneaker getSneakerByName(String name){
         /*for (int i = 0; i < fireSneakers) {
