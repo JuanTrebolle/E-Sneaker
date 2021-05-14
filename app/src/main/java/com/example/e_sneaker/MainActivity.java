@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar); // With this the app crashes
 
-        //Set the inital fragment to Store-fragment
+        //Set the initial fragment to Store-fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameLayoutFragment, new Cart_Fragment());
         transaction.commit();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //Bottom Navigation View
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        //bottomNavigationView.setSelectedItemId(R.id.nav_home); the first item selected by default
+        bottomNavigationView.setSelectedItemId(R.id.nav_home); //the first item selected by default
 
     }
 
