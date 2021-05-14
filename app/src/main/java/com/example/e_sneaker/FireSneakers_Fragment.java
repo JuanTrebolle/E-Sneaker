@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -65,13 +66,16 @@ public class FireSneakers_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_store, container, false);
+        View view = inflater.inflate(R.layout.fragment_fire_sneakers, container, false);
 
         rv_fire = view.findViewById(R.id.rv_fire);
         rv_fire.hasFixedSize();
         rv_fire.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         //TODO:populate the sneakers list
+
+        sneakers = new ArrayList<>();
+        sneakers.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
 
         fireSneakersAdapter = new FireSneakersAdapter(sneakers);
         rv_fire.setAdapter(fireSneakersAdapter);

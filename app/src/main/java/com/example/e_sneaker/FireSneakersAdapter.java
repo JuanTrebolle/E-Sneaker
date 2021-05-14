@@ -30,9 +30,9 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
     //Binds the data to the view
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
+        //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
         holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerPrice.setText((int) sneakers.get(position).getPrice());
+        holder.sneakerPrice.setText(String.valueOf(sneakers.get(position).getPrice()));
     }
 
     @Override

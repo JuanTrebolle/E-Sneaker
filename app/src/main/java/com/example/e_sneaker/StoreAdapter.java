@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,8 +37,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerImage.setImageResource(Integer.parseInt(sneakers.get(position).getImage())); // not sure about the parse
-        holder.sneakerPrice.setText((int) sneakers.get(position).getPrice());
+        //holder.sneakerImage.setImageResource(Integer.parseInt(sneakers.get(position).getImage())); // not sure about the parse
+        holder.sneakerPrice.setText(String.valueOf(sneakers.get(position).getPrice()));
 
         //holder.sneakerName.setText(sneakers.getValue().get(position).getModelName());
         //holder.sneakerPrice.setText((int) sneakers.getValue().get(position).getPrice());
@@ -55,8 +57,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        ImageView addToFireList;
-        ImageView addToCartList;
+        Button addToFireList;
+        Button addToCartList;
 
         ViewHolder(View itemView){
             super(itemView);

@@ -30,6 +30,13 @@
         android:layout_marginTop="10dp"/>
 
     <ImageView
+        android:id="@+id/itemShare"
+        android:layout_width="34dp"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/ic_share" />
+
+    <ImageView
         android:id="@+id/itemDelete"
         android:layout_width="34dp"
         android:layout_height="45dp"

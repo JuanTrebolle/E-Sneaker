@@ -68,13 +68,16 @@ public class Cart_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_store, container, false);
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
 
-        recyclerView = view.findViewById(R.id.rv_fire);
+        recyclerView = view.findViewById(R.id.rv_cart);
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         //TODO:populate the sneakers list
+
+        sneakers = new ArrayList<>();
+        sneakers.add(new Sneaker(1234, "Jordan 1", 120, "Jordan ", ""));
 
         cartAdapter = new CartAdapter(sneakers);
         recyclerView.setAdapter(cartAdapter);

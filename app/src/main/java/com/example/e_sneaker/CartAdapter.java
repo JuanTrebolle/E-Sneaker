@@ -3,7 +3,6 @@ package com.example.e_sneaker;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,9 +28,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
+        //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
         holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerPrice.setText((int) sneakers.get(position).getPrice());
+        holder.sneakerPrice.setText(String.valueOf(sneakers.get(position).getPrice()));
     }
 
     @Override
@@ -44,7 +43,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        Button deleteFromCart;
+        ImageView deleteFromCart;
 
         ViewHolder(View itemView){
             super(itemView);
