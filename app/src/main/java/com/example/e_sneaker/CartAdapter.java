@@ -23,7 +23,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.sneaker_list_item, parent, false);
-        return new CartAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -43,6 +43,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
+        ImageView share;
         ImageView deleteFromCart;
 
         ViewHolder(View itemView){
@@ -50,6 +51,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             sneakerName = itemView.findViewById(R.id.sneakerName);
             sneakerImage = itemView.findViewById(R.id.sneakerImage);
             sneakerPrice = itemView.findViewById(R.id.sneakerPrice);
+            share = itemView.findViewById(R.id.itemShare);
             deleteFromCart = itemView.findViewById(R.id.itemDelete);
         }
     }
