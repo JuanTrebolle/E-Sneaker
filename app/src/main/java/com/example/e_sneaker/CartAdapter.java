@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
-    private List<Sneaker> sneakers;
+    private List<Sneaker> cartSneakers;
 
     public CartAdapter(List<Sneaker> sneakers) {
-        this.sneakers = sneakers;
+        this.cartSneakers = sneakers;
     }
 
     @NonNull
@@ -29,13 +29,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
-        holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf(sneakers.get(position).getPrice()));
+        holder.sneakerName.setText(cartSneakers.get(position).getModelName());
+        holder.sneakerPrice.setText(String.valueOf(cartSneakers.get(position).getPrice()));
     }
 
     @Override
     public int getItemCount() {
-        return sneakers.size();
+        return cartSneakers.size();
     }
 
 
