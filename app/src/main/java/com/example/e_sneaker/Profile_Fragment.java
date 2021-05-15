@@ -76,7 +76,7 @@ public class Profile_Fragment extends Fragment {
         profileName = view.findViewById(R.id.profileName);
 
         logoutButton = view.findViewById(R.id.logOutButton);
-        logoutButton.setOnClickListener((v -> signOut(v)));
+        //logoutButton.setOnClickListener((v -> signOut(v)));
 
         return view;
     }
@@ -84,8 +84,7 @@ public class Profile_Fragment extends Fragment {
     public void signOut(View view) {
         //Should I checkIfSignedIn first??
         profileViewModel.signOut();
-        //TODO: go to the login activity
-        /*startActivity(new Intent(this, LoginActivity.class));
-        finish();*/
+        Intent intent = new Intent(getContext(), Profile_Fragment.class);
+        getContext().startActivity(intent);
     }
 }
