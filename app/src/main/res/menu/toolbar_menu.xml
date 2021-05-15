@@ -3,20 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:title="Search"
+        android:title="Search By Brand"
         app:showAsAction="always"
         android:icon="@drawable/ic_search"/>
 
-    <item
-        android:id="@+id/shoppingCart"
-        android:title="Shopping Cart"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_shopping_cart"/>
-
-    <item
-        android:id="@+id/profile"
-        android:title="Profile"/>
-    <item
+<!--    <item
         android:id="@+id/settings"
-        android:title="Settings"/>
+        android:title="Settings"/>-->
 </menu>

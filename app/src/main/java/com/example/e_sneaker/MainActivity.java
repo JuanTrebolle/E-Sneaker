@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.multidex.MultiDex;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar); // With this the app crashes
+        setSupportActionBar(toolbar);
 
         //Set the initial fragment to Store-fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.nav_home); //the first item selected by default
-
     }
 
     @Override
@@ -65,17 +66,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (itemId == R.id.search){
             //TODO: call viewModel to search specific shoe
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
-        } if (itemId == R.id.shoppingCart){
-            //TODO: call viewModel to go to shopping cart activity
-            //TODO: add ancestral button in shopping cart activity
-            Toast.makeText(this, "Shopping Cart", Toast.LENGTH_SHORT).show();
-        }else if (itemId == R.id.profile){
-            //TODO: call viewModel to enter profile settings
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-        } else if (itemId == R.id.settings){
-            //TODO: call viewModel to enter settings
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         }
+
         return super.onOptionsItemSelected(item);
     }
 

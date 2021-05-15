@@ -15,6 +15,10 @@ public class LoginViewModel extends AndroidViewModel {
         userRepository = UserRepository.getInstance(app);
     }
 
+    public void init(){
+        String userId = userRepository.getCurrentUser().getValue().getUid();
+    }
+
     public LiveData<FirebaseUser> getCurrentUser(){
         return userRepository.getCurrentUser();
     }

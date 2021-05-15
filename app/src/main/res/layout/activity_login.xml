@@ -95,6 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
+    <!-- Forgot password TextView-->
     <TextView
         android:id="@+id/forgotPasswordTextView"
         android:layout_width="wrap_content"
@@ -104,7 +105,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="FORGOT PASSWORD?"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -146,7 +146,6 @@
 
     <TextView
         android:id="@+id/goToResgister"
-        android:onClick="register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -155,11 +154,29 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_weight="1"
-        android:text="New User? Register Now"
+        android:text="New User?"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/round_bg"
+        android:text="Register Now"
+        android:onClick="register"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToResgister" />
 </androidx.constraintlayout.widget.ConstraintLayout>
