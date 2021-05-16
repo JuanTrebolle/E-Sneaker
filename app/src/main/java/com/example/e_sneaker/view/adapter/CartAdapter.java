@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.e_sneaker.R;
+import com.example.e_sneaker.model.Sneaker;
 
 import java.util.List;
 
@@ -39,7 +42,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
@@ -48,9 +51,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         ViewHolder(View itemView){
             super(itemView);
-            sneakerName = itemView.findViewById(R.id.sneakerName);
-            sneakerImage = itemView.findViewById(R.id.sneakerImage);
-            sneakerPrice = itemView.findViewById(R.id.sneakerPrice);
+            sneakerName = itemView.findViewById(R.id.itemName);
+            sneakerImage = itemView.findViewById(R.id.itemImage);
+            sneakerPrice = itemView.findViewById(R.id.itemPrice);
             share = itemView.findViewById(R.id.itemShare);
             deleteFromCart = itemView.findViewById(R.id.itemDelete);
         }

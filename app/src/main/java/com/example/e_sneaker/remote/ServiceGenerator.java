@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.remote;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

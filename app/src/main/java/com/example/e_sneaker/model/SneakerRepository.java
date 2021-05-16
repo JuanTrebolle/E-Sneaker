@@ -1,8 +1,12 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.model;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.e_sneaker.remote.ServiceGenerator;
+import com.example.e_sneaker.remote.SneakersApi;
+import com.example.e_sneaker.repository.Repository;
 
 import java.util.List;
 
@@ -10,7 +14,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SneakerRepository implements Repository{
+public class SneakerRepository implements Repository {
     /*private UserDAO userDAO;
     private SneakerDAO sneakerDAO;*/
     private MutableLiveData<List<Sneaker>> allSneakers;

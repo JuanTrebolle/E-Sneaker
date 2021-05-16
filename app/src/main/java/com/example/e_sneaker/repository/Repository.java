@@ -1,6 +1,6 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.repository;
 
-import java.util.List;
+import com.example.e_sneaker.model.Sneaker;
 
 public interface Repository {
     void requestAllSneakers();

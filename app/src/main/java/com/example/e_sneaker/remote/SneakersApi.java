@@ -1,4 +1,6 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.remote;
+
+import com.example.e_sneaker.model.Sneaker;
 
 import java.util.List;
 

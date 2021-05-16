@@ -1,22 +1,21 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.multidex.MultiDex;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.e_sneaker.R;
+import com.example.e_sneaker.view.fragment.Cart_Fragment;
+import com.example.e_sneaker.view.fragment.FireSneakers_Fragment;
+import com.example.e_sneaker.view.fragment.Profile_Fragment;
+import com.example.e_sneaker.view.fragment.Store_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

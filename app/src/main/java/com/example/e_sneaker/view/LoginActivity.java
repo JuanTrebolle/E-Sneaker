@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.e_sneaker.viewmodel.LoginViewModel;
+import com.example.e_sneaker.R;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

@@ -1,13 +1,10 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.viewmodel;
 
 import android.app.Application;
-import android.content.Intent;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 
-import static androidx.core.content.ContextCompat.startActivity;
+import com.example.e_sneaker.repository.UserRepository;
 
 public class ProfileViewModel extends AndroidViewModel {
     private UserRepository userRepository;

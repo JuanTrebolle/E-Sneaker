@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.e_sneaker.R;
+import com.example.e_sneaker.model.Sneaker;
+import com.example.e_sneaker.view.adapter.CartAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
 
 /**
  * A simple {@link Fragment} subclass.

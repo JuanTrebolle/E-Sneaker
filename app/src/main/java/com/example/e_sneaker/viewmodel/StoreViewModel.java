@@ -1,15 +1,13 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.viewmodel;
 
 import android.app.Application;
 
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 //import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 //import java.util.ArrayList;
-import java.util.List;
+import com.example.e_sneaker.repository.Repository;
+import com.example.e_sneaker.model.Sneaker;
 
 public class StoreViewModel extends /*AndroidViewModel*/ ViewModel {
     /*private MutableLiveData<List<Sneaker>> sneakers;

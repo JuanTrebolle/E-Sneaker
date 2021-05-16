@@ -1,6 +1,8 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.viewmodel;
 
 import androidx.lifecycle.ViewModel;
+
+import com.example.e_sneaker.model.Sneaker;
 
 public class FireViewModel extends ViewModel {
     private FireViewModel instance;

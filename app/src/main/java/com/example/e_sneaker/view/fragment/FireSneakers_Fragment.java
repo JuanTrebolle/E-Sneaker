@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view.fragment;
 
 import android.os.Bundle;
 
@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.e_sneaker.R;
+import com.example.e_sneaker.model.Sneaker;
+import com.example.e_sneaker.view.adapter.FireSneakersAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

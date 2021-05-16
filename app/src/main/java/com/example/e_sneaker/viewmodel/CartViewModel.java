@@ -1,4 +1,6 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.viewmodel;
+
+import com.example.e_sneaker.model.Sneaker;
 
 public class CartViewModel {
     private CartViewModel instance;

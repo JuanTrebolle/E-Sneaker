@@ -1,4 +1,4 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

@@ -1,10 +1,11 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.viewmodel;
 
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.e_sneaker.repository.UserRepository;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginViewModel extends AndroidViewModel {

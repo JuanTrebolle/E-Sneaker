@@ -1,7 +1,6 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.model;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import com.example.e_sneaker.model.Sneaker;
 
 import java.util.List;
 

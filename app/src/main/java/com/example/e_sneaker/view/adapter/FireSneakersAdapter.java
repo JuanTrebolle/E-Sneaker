@@ -1,14 +1,16 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.e_sneaker.R;
+import com.example.e_sneaker.model.Sneaker;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
     private List<Sneaker> sneakers;
 
     public FireSneakersAdapter(List<Sneaker> sneakers) {
-        this.sneakers = sneakers;
+            this.sneakers = sneakers;
     }
 
     @NonNull
@@ -44,14 +46,16 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        Button deleteFromFire;
+        ImageView deleteFromFire;
+        ImageView share;
 
         ViewHolder(View itemView){
             super(itemView);
-            sneakerName = itemView.findViewById(R.id.sneakerName);
-            sneakerImage = itemView.findViewById(R.id.sneakerImage);
-            sneakerPrice = itemView.findViewById(R.id.sneakerPrice);
+            sneakerName = itemView.findViewById(R.id.itemName);
+            sneakerImage = itemView.findViewById(R.id.itemImage);
+            sneakerPrice = itemView.findViewById(R.id.itemPrice);
             deleteFromFire = itemView.findViewById(R.id.itemDelete);
+            share = itemView.findViewById(R.id.itemShare);
         }
     }
 }

@@ -1,7 +1,6 @@
-package com.example.e_sneaker;
+package com.example.e_sneaker.remote;
 
-import androidx.lifecycle.MutableLiveData;
-
+import com.example.e_sneaker.model.Sneaker;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
