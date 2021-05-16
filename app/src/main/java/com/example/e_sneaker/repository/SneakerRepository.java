@@ -1,12 +1,15 @@
-package com.example.e_sneaker.model;
+package com.example.e_sneaker.repository;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.e_sneaker.dao.SneakerDAO;
+import com.example.e_sneaker.dao.UserDAO;
+import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.remote.ServiceGenerator;
 import com.example.e_sneaker.remote.SneakersApi;
-import com.example.e_sneaker.repository.Repository;
+import com.firebase.ui.auth.data.model.User;
 
 import java.util.List;
 
@@ -14,9 +17,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SneakerRepository implements Repository {
-    /*private UserDAO userDAO;
-    private SneakerDAO sneakerDAO;*/
+public class SneakerRepository {
+    private UserDAO userDAO;
+    private SneakerDAO sneakerDAO;
     private MutableLiveData<List<Sneaker>> allSneakers;
     private MutableLiveData<List<Sneaker>> sneakersByBrand;
     private MutableLiveData<List<Sneaker>> fireSneakers;
@@ -26,16 +29,12 @@ public class SneakerRepository implements Repository {
     private static SneakerRepository instance;
 
     private SneakerRepository(/*Application application*/){
-        /*ESneakerDatabase database = ESneakerDatabase.getInstance(application); //Room needs app context
-        userDAO = database.userDAO();
-        sneakerDAO = database.sneakerDAO();*/
+        userDAO = UserDAO.getInstance();
+        sneakerDAO = SneakerDAO.getInstance();
         allSneakers = new MutableLiveData<>();
         sneakersByBrand = new MutableLiveData<>();
         fireSneakers = new MutableLiveData<>();
         cartSneakers = new MutableLiveData<>();
-        /*sneakersByBrand = new ArrayList<>();
-        fireSneakers = new ArrayList<>();
-        cartSneakers = new ArrayList<>();*/
         sneakersApi = ServiceGenerator.getSneakersApi();
         requestAllSneakers();
     }
@@ -47,10 +46,7 @@ public class SneakerRepository implements Repository {
         return instance;
     }
 
-    /*public MutableLiveData<List<Sneaker>> getAllSneakers(){
-        return allSneakers;
-    }*/
-
+    //API REQUESTS
     public void requestAllSneakers(){
         Call<List<Sneaker>> call = sneakersApi.getAllSneakers(100); //requesting 100 sneakers
         call.enqueue(new Callback<List<Sneaker>>() {
@@ -68,18 +64,9 @@ public class SneakerRepository implements Repository {
                 t.printStackTrace();
             }
         });
-        //return (List<Sneaker>) allSneakers;
     }
 
-    /*public MutableLiveData<List<Sneaker>> getSneakersByBrand(String brand){
-        //TODO
-        for (Sneaker item : allSneakers.getValue()) {
-
-        }
-        return sneakersByBrand;
-    }*/
-
-    public List<Sneaker> requestSneakersByBrand(String brand){
+    public void requestSneakersByBrand(String brand){
         Call<List<Sneaker>> call = sneakersApi.getSneakersByBrand(brand);
         call.enqueue(new Callback<List<Sneaker>>() {
             @Override
@@ -97,44 +84,33 @@ public class SneakerRepository implements Repository {
                 t.printStackTrace();
             }
         });
-        return null;
     }
 
-    public Sneaker getSneakerByName(String name){
-        /*for (int i = 0; i < fireSneakers) {
-            if (item.getModelName().equals(name)){
-                return item;
-            }
-        }*/
-        return null;
+    
+    //CALLS TO DAO
+
+    /*public MutableLiveData<List<Sneaker>> getAllSneakers(){
+        return allSneakers;
     }
 
-    /*@Override
+    public MutableLiveData<List<Sneaker>> getSneakersByBrand(String brand){
+        return sneakersByBrand;
+    }*/
+
     public void addToFireList(Sneaker sneaker) {
-        fireSneakers.add(sneaker);
+        sneakerDAO.addSneakerToFireList(sneaker);
     }
 
-    @Override
     public void deleteFromFireList(Sneaker sneaker) {
-        for (Sneaker item : fireSneakers) {
-            if (item.equals(sneaker)){
-                fireSneakers.remove(sneaker);
-            }
-        }
+        sneakerDAO.deleteSneakerFromFireList(sneaker);
     }
 
-    @Override
     public void addToCart(Sneaker sneaker) {
-        cartSneakers.add(sneaker);
+        sneakerDAO.addSneakerToCartList(sneaker);
     }
 
-    @Override
     public void deleteFromCart(Sneaker sneaker) {
         //Look into async commands e.g. new InsertSneakerAsync(sneakerDAO).execute(sneaker);
-        for (Sneaker item : cartSneakers) {
-            if (item.equals(sneaker)){
-                cartSneakers.remove(sneaker);
-            }
-        }
-    }*/
+        sneakerDAO.deleteSneakerFromCartList(sneaker);
+    }
 }

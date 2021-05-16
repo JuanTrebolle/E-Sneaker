@@ -6,7 +6,6 @@ import android.app.Application;
 import androidx.lifecycle.ViewModel;
 
 //import java.util.ArrayList;
-import com.example.e_sneaker.repository.Repository;
 import com.example.e_sneaker.model.Sneaker;
 
 public class StoreViewModel extends /*AndroidViewModel*/ ViewModel {

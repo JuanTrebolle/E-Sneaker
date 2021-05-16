@@ -1,9 +1,9 @@
 package com.example.e_sneaker.repository;
 
 import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 
+import com.example.e_sneaker.dao.UserDAO;
 import com.example.e_sneaker.model.UserLiveData;
 import com.google.firebase.auth.FirebaseUser;
 import com.firebase.ui.auth.AuthUI;
@@ -12,6 +12,7 @@ public class UserRepository {
     private final UserLiveData currentUser;
     private final Application app;
     private static UserRepository instance;
+    private UserDAO userDAO;
 
     public UserRepository(Application app) {
         this.app = app;
@@ -27,6 +28,11 @@ public class UserRepository {
 
     public LiveData<FirebaseUser> getCurrentUser(){
         return currentUser;
+    }
+
+    public String getUserEmail(String userId){
+        //return currentUser.getValue().getEmail().toString();
+        return userDAO.getUserEmail(userId);
     }
 
     public void signOut(){

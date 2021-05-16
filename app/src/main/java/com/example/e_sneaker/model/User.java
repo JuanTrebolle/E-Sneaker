@@ -1,4 +1,4 @@
-package com.example.e_sneaker.model;
+/*package com.example.e_sneaker.model;
 
 import com.example.e_sneaker.model.Sneaker;
 
@@ -8,12 +8,16 @@ import java.util.List;
 public class User {
     //@PrimaryKey(autoGenerate = true)
     private long userID;
-    private String name;
-    private String lastName;
+    //private String name;
+    //private String lastName;
     private String email;
-    private int shoeSize;
-    private List<Sneaker> fireSneakers;
-    private List<Sneaker> cartSneakers;
+    //private List<Sneaker> fireSneakers;
+    //private List<Sneaker> cartSneakers;
+
+
+    public User() {
+        //Default constructor for calls to DataSnapShot.getValue(User.class)
+    }
 
     public User(int userID) {
         this.userID = userID;
@@ -27,7 +31,15 @@ public class User {
         this.userID = userID;
     }
 
-    public String getName() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /*public String getName() {
         return name;
     }
 
@@ -41,22 +53,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getShoeSize() {
-        return shoeSize;
-    }
-
-    public void setShoeSize(int shoeSize) {
-        this.shoeSize = shoeSize;
     }
 
     public List<Sneaker> getFavoriteSneakers() {
@@ -74,4 +70,4 @@ public class User {
     public void setCartSneakers(List<Sneaker> cartSneakers) {
         this.cartSneakers = cartSneakers;
     }
-}
+}*/
