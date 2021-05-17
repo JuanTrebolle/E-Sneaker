@@ -10,7 +10,9 @@ import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.remote.ServiceGenerator;
 import com.example.e_sneaker.remote.SneakersApi;
 import com.firebase.ui.auth.data.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,7 +30,7 @@ public class SneakerRepository {
 
     private static SneakerRepository instance;
 
-    private SneakerRepository(/*Application application*/){
+    private SneakerRepository(){
         userDAO = UserDAO.getInstance();
         sneakerDAO = SneakerDAO.getInstance();
         allSneakers = new MutableLiveData<>();
@@ -47,7 +49,7 @@ public class SneakerRepository {
     }
 
     //API REQUESTS
-    public void requestAllSneakers(){
+    public MutableLiveData<List<Sneaker>> requestAllSneakers(){
         Call<List<Sneaker>> call = sneakersApi.getAllSneakers(100); //requesting 100 sneakers
         call.enqueue(new Callback<List<Sneaker>>() {
             @Override
@@ -64,6 +66,7 @@ public class SneakerRepository {
                 t.printStackTrace();
             }
         });
+        return allSneakers;
     }
 
     public void requestSneakersByBrand(String brand){
@@ -86,7 +89,7 @@ public class SneakerRepository {
         });
     }
 
-    
+
     //CALLS TO DAO
 
     /*public MutableLiveData<List<Sneaker>> getAllSneakers(){

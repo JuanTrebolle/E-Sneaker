@@ -12,17 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
+import com.example.e_sneaker.viewmodel.StoreViewModel;
 
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
     //private MutableLiveData<List<Sneaker>> sneakers;
     private List<Sneaker> sneakers;
+    private StoreViewModel storeViewModel;
 
     /*Constructor made so that I can pass some data from an activity and bind that data to the
     customGridLayout(in the fragment)*/
     public StoreAdapter(/*MutableLiveData<List<Sneaker>>*/List<Sneaker> sneakers) {
         this.sneakers = sneakers;
+        this.storeViewModel = new StoreViewModel();
     }
 
     @NonNull
@@ -45,7 +48,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         //holder.sneakerImage.setImageResource(sneakers.getValue().get(position).getImage().);
 
         //TODO: when clicking the fire, add to fireList with an observer
-        // TODO: when clicking the cart, add to cartList with an observer
+        //TODO: when clicking the cart, add to cartList with an observer
     }
 
     @Override

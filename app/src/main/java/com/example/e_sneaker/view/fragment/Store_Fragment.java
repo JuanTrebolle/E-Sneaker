@@ -80,8 +80,10 @@ public class Store_Fragment extends Fragment {
 
         //TODO: populate list sneakers
         sneakers = new ArrayList<>();
+        //sneakers = storeViewModel.getAllSneakers();
         sneakers.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
 
+        //storeAdapter = new StoreAdapter(storeViewModel.getAllSneakers());
         storeAdapter = new StoreAdapter(sneakers);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
 
