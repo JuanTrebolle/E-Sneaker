@@ -7,6 +7,9 @@ public class Sneaker{
     private double price;
     private String imageUrl;
 
+    public Sneaker() {
+    }
+
     public Sneaker(long sneakerID, String modelName, double price, String brand, String imageUrl) {
         this.modelName = modelName;
         this.sneakerID = sneakerID;
