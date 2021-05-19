@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 
 public interface SneakersApi {
 
-    @GET("api/v1/sneakers")
+    @GET("api/v1/sneakers/{limit}")
     Call<List<Sneaker>> getAllSneakers(@Path("limit") int limit);
 
     @GET("api/v1/{brand}")
