@@ -9,15 +9,7 @@ import com.example.e_sneaker.repository.SneakerRepository;
 import java.util.List;
 
 public class FireViewModel extends ViewModel {
-    //private FireViewModel instance;
     private SneakerRepository sneakerRepository;
-
-    /*public FireViewModel getInstance(){
-        if (instance == null){
-            instance = new FireViewModel();
-        }
-        return instance;
-    }*/
 
     public FireViewModel() {
         sneakerRepository = SneakerRepository.getInstance();
@@ -28,10 +20,12 @@ public class FireViewModel extends ViewModel {
     }
 
     public void addToFireList(Sneaker sneaker){
-        sneakerRepository.getFireSneakers();
+        //sneakerRepository.getFireSneakers();
+        sneakerRepository.addToFireList(sneaker);
     }
 
     public void deleteFromFireList(Sneaker sneaker){
-        sneakerRepository.getCartSneakers();
+        //sneakerRepository.getCartSneakers();
+        sneakerRepository.deleteFromFireList(sneaker);
     }
 }
