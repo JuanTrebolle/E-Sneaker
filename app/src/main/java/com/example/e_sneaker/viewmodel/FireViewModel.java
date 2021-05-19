@@ -9,14 +9,18 @@ import com.example.e_sneaker.repository.SneakerRepository;
 import java.util.List;
 
 public class FireViewModel extends ViewModel {
-    private FireViewModel instance;
-    private SneakerRepository sneakerRepository = SneakerRepository.getInstance();
+    //private FireViewModel instance;
+    private SneakerRepository sneakerRepository;
 
-    public FireViewModel getInstance(){
+    /*public FireViewModel getInstance(){
         if (instance == null){
             instance = new FireViewModel();
         }
         return instance;
+    }*/
+
+    public FireViewModel() {
+        sneakerRepository = SneakerRepository.getInstance();
     }
 
     public LiveData<List<Sneaker>> getFireSneakersList(){

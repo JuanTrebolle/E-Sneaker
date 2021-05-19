@@ -36,6 +36,8 @@ public class SneakerRepository {
         allSneakers = new MutableLiveData<>();
         sneakersByBrand = new MutableLiveData<>();
         fireSneakers = new MutableLiveData<>();
+        //ArrayList<Sneaker> tempList = new ArrayList<>();
+        //fireSneakers.setValue(tempList);
         cartSneakers = new MutableLiveData<>();
         sneakersApi = ServiceGenerator.getSneakersApi();
         requestAllSneakers();

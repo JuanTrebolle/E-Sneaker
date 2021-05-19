@@ -23,8 +23,9 @@ public class StoreViewModel extends ViewModel {
         super();
         sneakerRepository = SneakerRepository.getInstance();
         allSneakers = sneakerRepository.requestAllSneakers();
-        fireViewModel.getInstance();
-        cartViewModel.getInstance();
+        //getInstance in ViewModels()??
+        fireViewModel = new FireViewModel();
+        cartViewModel = new CartViewModel();
     }
 
     public MutableLiveData<List<Sneaker>> getAllSneakers() {
