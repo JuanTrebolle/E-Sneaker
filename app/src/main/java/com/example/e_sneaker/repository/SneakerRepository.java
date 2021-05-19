@@ -52,12 +52,20 @@ public class SneakerRepository {
 
     //API REQUESTS
     public MutableLiveData<List<Sneaker>> requestAllSneakers(){
-        Call<List<Sneaker>> call = sneakersApi.getAllSneakers(100); //requesting 100 sneakers
+        Call<List<Sneaker>> call = sneakersApi.getAllSneakers(50); //minLimit=10 - maxLimit=100
         call.enqueue(new Callback<List<Sneaker>>() {
             @Override
             public void onResponse(Call<List<Sneaker>> call, Response<List<Sneaker>> response) {
                 if (response.code() == 200){
                     allSneakers.setValue(response.body());
+                } else {
+                    ArrayList<Sneaker> trySneaker = new ArrayList<>();
+
+                    trySneaker.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
+                    trySneaker.add(new Sneaker(12345, "Jordan", 120, "Nike", ""));
+                    trySneaker.add(new Sneaker(123467, "Puma", 120, "Nike", ""));
+
+                    allSneakers.setValue(trySneaker);
                 }
             }
 
@@ -91,20 +99,9 @@ public class SneakerRepository {
         });
     }
 
-
-    //CALLS TO DAO
-
-    /*public MutableLiveData<List<Sneaker>> getAllSneakers(){
-        return allSneakers;
-    }
-
-    public MutableLiveData<List<Sneaker>> getSneakersByBrand(String brand){
-        return sneakersByBrand;
-    }*/
-
     //FIRE-SNEAKERS
     public MutableLiveData<List<Sneaker>> getFireSneakers() {
-        return fireSneakers;
+        return sneakerDAO.getFireSneakers();
     }
 
     public void addToFireList(Sneaker sneaker) {
