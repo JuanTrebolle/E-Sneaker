@@ -1,5 +1,6 @@
 package com.example.e_sneaker.view.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,18 +8,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+//import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
+import com.example.e_sneaker.repository.SneakerRepository;
+//import com.example.e_sneaker.viewmodel.FireViewModel;
 
 import java.util.List;
 
 public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapter.ViewHolder> {
-    private List<Sneaker> sneakers;
+    private List<Sneaker> fireSneakers;
+    SneakerRepository sneakerRepository;
 
     public FireSneakersAdapter(List<Sneaker> sneakers) {
-            this.sneakers = sneakers;
+            this.fireSneakers = sneakers;
     }
 
     @NonNull
@@ -33,13 +40,38 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
-        holder.sneakerName.setText(sneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf(sneakers.get(position).getPrice()));
+        Glide.with(holder.itemView).load(fireSneakers.get(position).getImage()).into(holder.sneakerImage);
+        holder.sneakerName.setText(fireSneakers.get(position).getModelName());
+        holder.sneakerPrice.setText(String.valueOf(fireSneakers.get(position).getPrice()));
+
+        sneakerRepository = SneakerRepository.getInstance();
+
+        Sneaker toDelete = fireSneakers.get(position);
+
+        //click on delete button
+        holder.deleteFromFire.setOnClickListener(d -> toDeleteFromFireList(d, toDelete));
+
+        //click on Share button
+        holder.share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Intent to share
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥");
+                shareIntent.setType("text/plain");
+                view.getContext().startActivity(shareIntent);
+            }
+        });
+    }
+
+    private void toDeleteFromFireList(View view, Sneaker sneaker) {
+        sneakerRepository.deleteFromFireList(sneaker);
     }
 
     @Override
     public int getItemCount() {
-        return sneakers.size();
+        return fireSneakers.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
