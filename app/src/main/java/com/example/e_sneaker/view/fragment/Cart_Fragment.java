@@ -23,19 +23,16 @@ import java.util.List;
 
 public class Cart_Fragment extends Fragment {
     RecyclerView recyclerView;
-    List<Sneaker> sneakers; //TODO: change for CartViewModel
+    List<Sneaker> sneakers;
     CartAdapter cartAdapter;
     CartViewModel cartViewModel;
 
     ImageView toDeleteIcon;
     ImageView toShareIcon;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -55,10 +52,11 @@ public class Cart_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
+        cartViewModel = new CartViewModel();
     }
 
     @Override
@@ -74,19 +72,15 @@ public class Cart_Fragment extends Fragment {
         cartViewModel.getCartSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {
-                StoreAdapter storeAdapter = new StoreAdapter(sneakers);
-                recyclerView.setAdapter(storeAdapter);
+                //StoreAdapter storeAdapter = new StoreAdapter(sneakers);
+                //recyclerView.setAdapter(storeAdapter);
+                CartAdapter cartAdapter = new CartAdapter(sneakers);
+                recyclerView.setAdapter(cartAdapter);
             }
         });
-        //TODO:populate the sneakers list
 
-        //sneakers = new ArrayList<>();
-        //sneakers.add(new Sneaker(1234, "Jordan 1", 120, "Jordan ", ""));
-
-
-        cartAdapter = new CartAdapter(sneakers);
-        recyclerView.setAdapter(cartAdapter);
-
+        //cartAdapter = new CartAdapter(sneakers);
+        //recyclerView.setAdapter(cartAdapter);
         return view;
     }
 }

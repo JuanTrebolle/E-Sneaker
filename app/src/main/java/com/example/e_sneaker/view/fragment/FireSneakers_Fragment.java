@@ -76,19 +76,14 @@ public class FireSneakers_Fragment extends Fragment {
         fireViewModel.getFireSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {
-                StoreAdapter storeAdapter = new StoreAdapter(sneakers);
-                rv_fire.setAdapter(storeAdapter);
+                //StoreAdapter storeAdapter = new StoreAdapter(sneakers);
+                //rv_fire.setAdapter(storeAdapter);
+                FireSneakersAdapter fireSneakersAdapter = new FireSneakersAdapter(sneakers);
+                rv_fire.setAdapter(fireSneakersAdapter);
             }
         });
 
-        //TODO:populate the sneakers list
-        //fireViewModel.addToFireList();
-
-        sneakers = new ArrayList<>();
-        //sneakers.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
-
-        //fireSneakersAdapter = new FireSneakersAdapter(sneakers);
-        //rv_fire.setAdapter(fireSneakersAdapter);
+        //sneakers = new ArrayList<>();
 
         return view;
     }
