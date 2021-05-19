@@ -55,7 +55,6 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Intent to share
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥");

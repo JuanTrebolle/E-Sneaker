@@ -20,10 +20,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import okhttp3.internal.cache.DiskLruCache;
 
 public class SneakerDAO {
-    private final FirebaseDatabase database = FirebaseDatabase.getInstance(); //not sure if should use the root
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance("https://e-sneaker-d1f9b-default-rtdb.europe-west1.firebasedatabase.app/");
     private DatabaseReference ref;
 
     private static SneakerDAO instance;
@@ -115,6 +114,10 @@ public class SneakerDAO {
 
     public void deleteSneakerFromCartList(Sneaker sneaker){
         ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("cart-sneakers").child(String.valueOf(sneaker.getSneakerID())).removeValue();
+    }
+
+    public MutableLiveData<List<Sneaker>> getFireSneakers() {
+        return fireSneakers;
     }
 
     /*public Sneaker getSneakerByName(String name){ //For future
