@@ -9,21 +9,11 @@ import com.example.e_sneaker.repository.SneakerRepository;
 import java.util.List;
 
 public class CartViewModel extends ViewModel {
-    //private CartViewModel instance;
     SneakerRepository sneakerRepository;
 
     public CartViewModel() {
         sneakerRepository = SneakerRepository.getInstance();
     }
-
-    /*public CartViewModel getInstance(){
-        if (instance == null){
-            instance = new CartViewModel();
-        }
-        return instance;
-    }*/
-
-
 
     public LiveData<List<Sneaker>> getCartSneakersList(){
         return sneakerRepository.getCartSneakers();

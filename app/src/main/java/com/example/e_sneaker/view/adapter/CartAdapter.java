@@ -24,7 +24,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     public CartAdapter(List<Sneaker> sneakers) {
         this.cartSneakers = sneakers;
-        sneakerRepository = SneakerRepository.getInstance();
     }
 
     @NonNull
