@@ -56,10 +56,11 @@ public class FireSneakers_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
+        fireViewModel = new FireViewModel();
     }
 
     @Override
@@ -71,6 +72,7 @@ public class FireSneakers_Fragment extends Fragment {
         rv_fire.hasFixedSize();
         rv_fire.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
+        fireViewModel = new ViewModelProvider(this).get(FireViewModel.class);
         fireViewModel.getFireSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {
@@ -80,14 +82,13 @@ public class FireSneakers_Fragment extends Fragment {
         });
 
         //TODO:populate the sneakers list
-        //fireViewModel = new ViewModelProvider(this).get(FireViewModel.class);
         //fireViewModel.addToFireList();
 
-        //sneakers = new ArrayList<>();
+        sneakers = new ArrayList<>();
         //sneakers.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
 
-        fireSneakersAdapter = new FireSneakersAdapter(sneakers);
-        rv_fire.setAdapter(fireSneakersAdapter);
+        //fireSneakersAdapter = new FireSneakersAdapter(sneakers);
+        //rv_fire.setAdapter(fireSneakersAdapter);
 
         return view;
     }

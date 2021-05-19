@@ -3,6 +3,7 @@ package com.example.e_sneaker.view.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,15 +25,10 @@ import java.util.List;
 
 import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Store_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Store_Fragment extends Fragment {
     RecyclerView recyclerView;
     StoreViewModel storeViewModel;
-    List<Sneaker> sneakers;
+    MutableLiveData<List<Sneaker>> sneakers;
     StoreAdapter storeAdapter;
 
     Button addToFireListButton;
@@ -55,6 +51,7 @@ public class Store_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sneakers = new MutableLiveData<List<Sneaker>>();
     }
 
     @Override
@@ -63,6 +60,8 @@ public class Store_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store, container, false);
         recyclerView = view.findViewById(R.id.rv_store);
+
+        storeViewModel = new ViewModelProvider(this).get(StoreViewModel.class);
 
         addToFireListButton = view.findViewById(R.id.addToFireList);
         addToCartButton = view.findViewById(R.id.addToCartList);
@@ -75,13 +74,19 @@ public class Store_Fragment extends Fragment {
             }
         });
 
-        //TODO: populate list sneakers
-        sneakers = new ArrayList<>();
-        //sneakers = storeViewModel.getAllSneakers();
-        sneakers.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
+        //TODO: populate list sneaker
 
         //storeAdapter = new StoreAdapter(storeViewModel.getAllSneakers());
-        storeAdapter = new StoreAdapter(sneakers);
+        storeViewModel.getAllSneakers().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
+            @Override
+            public void onChanged(List<Sneaker> sneakers) {
+                StoreAdapter storeAdapter = new StoreAdapter(sneakers);
+                recyclerView.setAdapter(storeAdapter);
+            }
+        });
+
+        //sneakers.setValue(storeViewModel.getAllSneakers().getValue());
+        //storeAdapter = new StoreAdapter(sneakers);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
 
         recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size

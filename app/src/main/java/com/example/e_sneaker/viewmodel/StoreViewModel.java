@@ -23,21 +23,15 @@ public class StoreViewModel extends ViewModel {
         super();
         sneakerRepository = SneakerRepository.getInstance();
         allSneakers = sneakerRepository.requestAllSneakers();
-        //getInstance in ViewModels()??
         fireViewModel = new FireViewModel();
         cartViewModel = new CartViewModel();
     }
 
-    public MutableLiveData<List<Sneaker>> getAllSneakers() {
+    public LiveData<List<Sneaker>> getAllSneakers() {
         return allSneakers;
     }
 
     public void addSneakerToFire(Sneaker sneaker){
-        /*List<Sneaker> newList = fireSneakerList.getValue();
-        newList.add(sneaker);
-        fireSneakerList.setValue(newList);*/
-
-        //repository.addToFireList(sneaker);
         fireViewModel.addToFireList(sneaker);
     }
 
@@ -46,11 +40,6 @@ public class StoreViewModel extends ViewModel {
     }
 
     public void addSneakerToCart(Sneaker sneaker){
-        /*List<Sneaker> newList = cartSneakerList.getValue();
-        newList.add(sneaker);
-        cartSneakerList.setValue(newList);*/
-
-        //repository.addToCart(sneaker);
         cartViewModel.addToCartList(sneaker);
     }
 
