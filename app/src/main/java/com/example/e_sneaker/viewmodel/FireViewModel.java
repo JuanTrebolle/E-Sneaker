@@ -24,8 +24,9 @@ public class FireViewModel extends ViewModel {
         sneakerRepository.addToFireList(sneaker);
     }
 
+    /* Done in SneakerRepository instead
     public void deleteFromFireList(Sneaker sneaker){
         //sneakerRepository.getCartSneakers();
         sneakerRepository.deleteFromFireList(sneaker);
-    }
+    }*/
 }
