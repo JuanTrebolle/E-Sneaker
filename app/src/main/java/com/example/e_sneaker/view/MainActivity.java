@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.e_sneaker.R;
+import com.example.e_sneaker.repository.SneakerRepository;
 import com.example.e_sneaker.view.fragment.Cart_Fragment;
 import com.example.e_sneaker.view.fragment.FireSneakers_Fragment;
 import com.example.e_sneaker.view.fragment.Profile_Fragment;
@@ -20,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    private SneakerRepository sneakerRepository;
     private static final String TAG = "MainActivity";
     BottomNavigationView bottomNavigationView;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.nav_home); //the first item selected by default
+
+        sneakerRepository = SneakerRepository.getInstance();
     }
 
     @Override
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         if (itemId == R.id.search){
             //TODO: call viewModel to search specific shoe
+            sneakerRepository.requestSneakersByBrand(String.valueOf(item.getTitle()));
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
         }
 
