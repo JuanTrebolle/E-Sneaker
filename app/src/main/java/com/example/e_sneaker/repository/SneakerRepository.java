@@ -100,12 +100,22 @@ public class SneakerRepository {
         return sneakersByBrand;
     }*/
 
+    //FIRE-SNEAKERS
+    public MutableLiveData<List<Sneaker>> getFireSneakers() {
+        return fireSneakers;
+    }
+
     public void addToFireList(Sneaker sneaker) {
         sneakerDAO.addSneakerToFireList(sneaker);
     }
 
     public void deleteFromFireList(Sneaker sneaker) {
         sneakerDAO.deleteSneakerFromFireList(sneaker);
+    }
+
+    //CART-SNEAKERS
+    public MutableLiveData<List<Sneaker>> getCartSneakers() {
+        return cartSneakers;
     }
 
     public void addToCart(Sneaker sneaker) {
