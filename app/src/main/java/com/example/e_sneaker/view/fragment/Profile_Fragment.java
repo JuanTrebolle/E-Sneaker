@@ -43,20 +43,11 @@ public class Profile_Fragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Profile_Fragment newInstance(String param1, String param2) {
         Profile_Fragment fragment = new Profile_Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        //args.putString(ARG_PARAM1, param1);
+        //args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -64,10 +55,10 @@ public class Profile_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
     }
 
     @Override
@@ -77,10 +68,11 @@ public class Profile_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        //TODO: set email to user email
+        //Set email to user email
         profileEmail = view.findViewById(R.id.profileEmail);
+        profileEmail.setText(profileViewModel.getUserEmail());
 
-        //TODO: set name to username
+        //TODO: set name to username -> PROBABLY NOT GOING TO DO
         profileName = view.findViewById(R.id.profileName);
 
         logoutButton = view.findViewById(R.id.logOutButton);
