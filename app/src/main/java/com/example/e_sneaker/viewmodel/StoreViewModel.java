@@ -1,8 +1,9 @@
 package com.example.e_sneaker.viewmodel;
 
-import android.app.Application;
+//import android.app.Application;
 
 //import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -14,24 +15,20 @@ import java.util.List;
 
 public class StoreViewModel extends ViewModel {
     private MutableLiveData<List<Sneaker>> allSneakers;
-    private MutableLiveData<List<Sneaker>> fireSneakerList;
-    private MutableLiveData<List<Sneaker>> cartSneakerList;
     private SneakerRepository sneakerRepository;
     private FireViewModel fireViewModel;
     private CartViewModel cartViewModel;
 
     public StoreViewModel() {
         super();
-        allSneakers = new MutableLiveData<>();
-        //TODO observe lists
-        fireSneakerList = new MutableLiveData<>();
-        cartSneakerList = new MutableLiveData<>();
+        sneakerRepository = SneakerRepository.getInstance();
+        allSneakers = sneakerRepository.requestAllSneakers();
         fireViewModel.getInstance();
         cartViewModel.getInstance();
     }
 
-    public void getAllSneakers(){
-        sneakerRepository.requestAllSneakers();
+    public MutableLiveData<List<Sneaker>> getAllSneakers() {
+        return allSneakers;
     }
 
     public void addSneakerToFire(Sneaker sneaker){
@@ -43,6 +40,10 @@ public class StoreViewModel extends ViewModel {
         fireViewModel.addToFireList(sneaker);
     }
 
+    public LiveData<List<Sneaker>> getFireSneakers(){
+        return sneakerRepository.getFireSneakers();
+    }
+
     public void addSneakerToCart(Sneaker sneaker){
         /*List<Sneaker> newList = cartSneakerList.getValue();
         newList.add(sneaker);
@@ -50,5 +51,9 @@ public class StoreViewModel extends ViewModel {
 
         //repository.addToCart(sneaker);
         cartViewModel.addToCartList(sneaker);
+    }
+
+    public LiveData<List<Sneaker>> getCartSneakers(){
+        return sneakerRepository.getCartSneakers();
     }
 }

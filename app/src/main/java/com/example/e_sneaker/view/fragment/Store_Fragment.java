@@ -3,12 +3,16 @@ package com.example.e_sneaker.view.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.view.adapter.StoreAdapter;
@@ -31,26 +35,13 @@ public class Store_Fragment extends Fragment {
     List<Sneaker> sneakers;
     StoreAdapter storeAdapter;
 
+    Button addToFireListButton;
+    Button addToCartButton;
+
     public Store_Fragment(){
         //Required empty constructor
     }
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment StoreFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Store_Fragment newInstance(/*String param1, String param2*/) {
         Store_Fragment store_fragment = new Store_Fragment();
         Bundle args = new Bundle();
@@ -64,11 +55,6 @@ public class Store_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
     }
 
     @Override
@@ -77,6 +63,17 @@ public class Store_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store, container, false);
         recyclerView = view.findViewById(R.id.rv_store);
+
+        addToFireListButton = view.findViewById(R.id.addToFireList);
+        addToCartButton = view.findViewById(R.id.addToCartList);
+
+        storeViewModel.getFireSneakers().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
+            @Override
+            public void onChanged(List<Sneaker> sneakers) {
+                StoreAdapter storeAdapter = new StoreAdapter(sneakers);
+                recyclerView.setAdapter(storeAdapter);
+            }
+        });
 
         //TODO: populate list sneakers
         sneakers = new ArrayList<>();
@@ -89,7 +86,6 @@ public class Store_Fragment extends Fragment {
 
         recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size
         recyclerView.setAdapter(storeAdapter);
-
 
         return view;
     }
