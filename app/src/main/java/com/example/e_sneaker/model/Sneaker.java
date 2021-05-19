@@ -1,12 +1,6 @@
 package com.example.e_sneaker.model;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-//@Entity(tableName = "sneaker_table")
-public class Sneaker {
-    //@PrimaryKey(autoGenerate = true)
+public class Sneaker{
     private long sneakerID;
     private String modelName;
     private String brand;
@@ -38,7 +32,6 @@ public class Sneaker {
         return price;
     }
 
-    //@ColumnInfo(typeAffinity = ColumnInfo.BLOB) // BLOB is used to store image data into the db.
     public String getImage() { //not sure about the image type
         return imageUrl;
     }

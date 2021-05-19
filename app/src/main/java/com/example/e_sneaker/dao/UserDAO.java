@@ -31,7 +31,7 @@ public class UserDAO {
         return instance;
     }
 
-    public String getUserEmail(String UID){
+    /*public String getUserEmail(String UID){
         final String[] userEmail = {null}; //not sure about this
         ref.child("users").child(UID).get().addOnCompleteListener(task -> {
             if (!task.isSuccessful()){
@@ -43,30 +43,5 @@ public class UserDAO {
             }
         });
         return userEmail[0];
-    }
-
-    /*void insertUser(User user){
-
     }*/
-
-    /*public LiveData<List<Sneaker>> getFavoriteSneakers(){
-
-    }
-
-    public void setFireSneakers(LiveData<List<Sneaker>> favoriteSneakers){
-
-    }
-
-    public LiveData<List<Sneaker>> getCartSneakers(){
-
-    }
-
-    public void setCartSneakers(LiveData<List<Sneaker>> cartSneakers){
-
-    }
-
-    public void deleteFromCart(Sneaker sneaker){
-
-    }*/
-
 }
