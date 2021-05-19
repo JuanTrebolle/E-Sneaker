@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 
 import com.example.e_sneaker.repository.UserRepository;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileViewModel extends AndroidViewModel {
     private UserRepository userRepository;
@@ -15,13 +16,11 @@ public class ProfileViewModel extends AndroidViewModel {
     }
 
     public String getUserEmail(){
-        //TODO
-        return null;
+        return userRepository.getUserEmail();
     }
 
-    public String getUserName(){
-        //TODO
-        return null;
+    public String getUserId(){
+        return userRepository.getUserId();
     }
 
     public void signOut() {

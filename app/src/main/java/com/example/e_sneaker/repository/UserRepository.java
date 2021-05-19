@@ -30,6 +30,14 @@ public class UserRepository {
         return currentUser;
     }
 
+    public String getUserId(){
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    }
+
+    public String getUserEmail(){
+        return FirebaseAuth.getInstance().getCurrentUser().getEmail();
+    }
+
     public void signOut(){
         AuthUI.getInstance().signOut(app.getApplicationContext());
     }
