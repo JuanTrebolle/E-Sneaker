@@ -73,7 +73,7 @@ public class Profile_Fragment extends Fragment {
         profileEmail.setText(profileViewModel.getUserEmail());
 
         //TODO: set name to username -> PROBABLY NOT GOING TO DO
-        profileName = view.findViewById(R.id.profileName);
+        //profileName = view.findViewById(R.id.profileName);
 
         logoutButton = view.findViewById(R.id.logOutButton);
         logoutButton.setOnClickListener((v -> signOut(v)));

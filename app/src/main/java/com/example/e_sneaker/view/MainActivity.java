@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         if (itemId == R.id.search){
             //TODO: call viewModel to search specific shoe
-            sneakerRepository.requestSneakersByBrand(String.valueOf(item.getTitle()));
+            //sneakerRepository.requestSneakersByBrand(String.valueOf(item.getTitle()));
+            sneakerRepository.requestSneakersByBrand(String.valueOf("Jordan"));
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
         }
 

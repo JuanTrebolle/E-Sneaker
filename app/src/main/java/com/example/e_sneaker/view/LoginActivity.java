@@ -39,10 +39,10 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        inputEmail = findViewById(R.id.inputEmail);
-        inputPassword = findViewById(R.id.inputPassword);
+        //inputEmail = findViewById(R.id.inputEmail);
+        //inputPassword = findViewById(R.id.inputPassword);
         loginButton = this.findViewById(R.id.loginButton);
-        registerButton = this.findViewById(R.id.registerButton);
+        //registerButton = this.findViewById(R.id.registerButton);
 
         /*registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
