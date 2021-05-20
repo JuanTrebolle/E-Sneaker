@@ -121,8 +121,4 @@ public class SneakerDAO {
     public MutableLiveData<List<Sneaker>> getCartSneakers() {
         return cartSneakers;
     }
-
-    /*public Sneaker getSneakerByName(String name){ //For future
-
-    }*/
 }
