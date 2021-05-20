@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/sneaker_list_item">
+    android:id="@+id/sneaker_item_list">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -19,38 +19,36 @@
         app:contentPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <Button
                 android:id="@+id/itemShare"
-                android:layout_width="34dp"
-                android:layout_height="45dp"
-                android:layout_margin="10dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginBottom="4dp"
+                android:background="@drawable/round_border"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:drawableTop="@drawable/ic_share_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/itemDelete"
-                app:layout_constraintTop_toBottomOf="@+id/sneakerName"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_share" />
+                app:layout_constraintTop_toBottomOf="@+id/itemName"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
+            <Button
                 android:id="@+id/itemDelete"
-                android:layout_width="34dp"
+                android:background="@drawable/round_border"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_delete_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sneakerName"
-                app:srcCompat="@drawable/ic_delete" />
+                app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
             <ImageView
                 android:id="@+id/itemImage"
@@ -70,11 +68,11 @@
                 android:id="@+id/itemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sneakerImage" />
+                app:layout_constraintTop_toBottomOf="@+id/itemImage" />
 
             <TextView
                 android:id="@+id/itemPrice"
@@ -85,7 +83,7 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sneakerName" />
+                app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
             <!--<ImageView
                 android:layout_width="wrap_content"
