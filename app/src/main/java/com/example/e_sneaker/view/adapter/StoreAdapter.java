@@ -9,26 +9,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.repository.SneakerRepository;
-import com.example.e_sneaker.view.MainActivity;
-import com.example.e_sneaker.view.fragment.Store_Fragment;
 
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
-    //private MutableLiveData<List<Sneaker>> sneakers;
     private List<Sneaker> sneakers;
-    //private MutableLiveData<List<Sneaker>> fireSneakersList;
-    //private MutableLiveData<List<Sneaker>> cartSneakersList;
-    //private StoreViewModel storeViewModel;
     private SneakerRepository sneakerRepository;
 
     /*Constructor made so that I can pass some data from an activity and bind that data to the
@@ -36,9 +27,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     public StoreAdapter(List<Sneaker> sneakers) {
         this.sneakers = sneakers;
         this.sneakerRepository = SneakerRepository.getInstance();
-
-        //fireSneakersList = new MutableLiveData<>();
-        //cartSneakersList = new MutableLiveData<>();
     }
 
     @NonNull

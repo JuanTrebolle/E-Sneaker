@@ -9,15 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-//import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.repository.SneakerRepository;
-//import com.example.e_sneaker.viewmodel.FireViewModel;
 
 import java.util.List;
 

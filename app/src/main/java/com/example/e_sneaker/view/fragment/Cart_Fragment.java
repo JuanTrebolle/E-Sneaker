@@ -49,7 +49,6 @@ public class Cart_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         recyclerView = view.findViewById(R.id.rv_cart);
-        
         cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
         cartViewModel.getCartSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
