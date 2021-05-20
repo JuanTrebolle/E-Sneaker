@@ -31,18 +31,16 @@ public class Store_Fragment extends Fragment {
     MutableLiveData<List<Sneaker>> sneakers;
     StoreAdapter storeAdapter;
 
-    Button addToFireListButton;
-    Button addToCartButton;
+    //Button addToFireListButton;
+    //Button addToCartButton;
 
     public Store_Fragment(){
         //Required empty constructor
     }
 
-    public static Store_Fragment newInstance(/*String param1, String param2*/) {
+    public static Store_Fragment newInstance() {
         Store_Fragment store_fragment = new Store_Fragment();
         Bundle args = new Bundle();
-        //args.putString(ARG_PARAM1, param1);
-        //args.putString(ARG_PARAM2, param2);
         store_fragment.setArguments(args);
 
         return store_fragment;
@@ -63,8 +61,8 @@ public class Store_Fragment extends Fragment {
 
         storeViewModel = new ViewModelProvider(this).get(StoreViewModel.class);
 
-        addToFireListButton = view.findViewById(R.id.addToFireList);
-        addToCartButton = view.findViewById(R.id.addToCartList);
+        //addToFireListButton = view.findViewById(R.id.addToFireList);
+        //addToCartButton = view.findViewById(R.id.addToCartList);
 
         storeViewModel.getFireSneakers().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
@@ -74,9 +72,6 @@ public class Store_Fragment extends Fragment {
             }
         });
 
-        //TODO: populate list sneaker
-
-        //storeAdapter = new StoreAdapter(storeViewModel.getAllSneakers());
         storeViewModel.getAllSneakers().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {
@@ -85,8 +80,6 @@ public class Store_Fragment extends Fragment {
             }
         });
 
-        //sneakers.setValue(storeViewModel.getAllSneakers().getValue());
-        //storeAdapter = new StoreAdapter(sneakers);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, VERTICAL, false));
 
         recyclerView.hasFixedSize(); // Tells the recyclerView that all of the elements are gonna be the same size

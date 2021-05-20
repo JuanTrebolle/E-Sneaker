@@ -26,8 +26,8 @@ import java.util.List;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
     //private MutableLiveData<List<Sneaker>> sneakers;
     private List<Sneaker> sneakers;
-    private MutableLiveData<List<Sneaker>> fireSneakersList;
-    private MutableLiveData<List<Sneaker>> cartSneakersList;
+    //private MutableLiveData<List<Sneaker>> fireSneakersList;
+    //private MutableLiveData<List<Sneaker>> cartSneakersList;
     //private StoreViewModel storeViewModel;
     private SneakerRepository sneakerRepository;
 
@@ -37,8 +37,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         this.sneakers = sneakers;
         this.sneakerRepository = SneakerRepository.getInstance();
 
-        fireSneakersList = new MutableLiveData<>();
-        cartSneakersList = new MutableLiveData<>();
+        //fireSneakersList = new MutableLiveData<>();
+        //cartSneakersList = new MutableLiveData<>();
     }
 
     @NonNull
@@ -55,8 +55,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         holder.sneakerName.setText(sneakers.get(position).getModelName());
         Glide.with(holder.itemView).load(sneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerPrice.setText("$" + Integer.toString(sneakers.get(position).getPrice()));
-
-        System.out.println(sneakers.get(position).getPrice());
 
         Sneaker toAdd = sneakers.get(position);
 

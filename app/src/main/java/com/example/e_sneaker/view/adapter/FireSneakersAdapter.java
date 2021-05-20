@@ -27,6 +27,7 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
 
     public FireSneakersAdapter(List<Sneaker> sneakers) {
             this.fireSneakers = sneakers;
+            this.sneakerRepository = SneakerRepository.getInstance();
     }
 
     @NonNull
@@ -41,11 +42,10 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
-        Glide.with(holder.itemView).load(fireSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(fireSneakers.get(position).getModelName());
+        Glide.with(holder.itemView).load(fireSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerPrice.setText("$" + Integer.toString(fireSneakers.get(position).getPrice()));
 
-        sneakerRepository = SneakerRepository.getInstance();
         Sneaker currentSneaker = fireSneakers.get(position);
 
         //click on delete button

@@ -31,19 +31,19 @@ public class StoreViewModel extends ViewModel {
         return allSneakers;
     }
 
-    public void addSneakerToFire(Sneaker sneaker){
+    /*public void addSneakerToFire(Sneaker sneaker){
         fireViewModel.addToFireList(sneaker);
-    }
+    }*/
 
     public LiveData<List<Sneaker>> getFireSneakers(){
         return sneakerRepository.getFireSneakers();
     }
 
-    public void addSneakerToCart(Sneaker sneaker){
+    /*public void addSneakerToCart(Sneaker sneaker){
         cartViewModel.addToCartList(sneaker);
-    }
+    }*/
 
-    public LiveData<List<Sneaker>> getCartSneakers(){
+    /*public LiveData<List<Sneaker>> getCartSneakers(){
         return sneakerRepository.getCartSneakers();
-    }
+    }*/
 }

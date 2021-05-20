@@ -27,6 +27,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     public CartAdapter(List<Sneaker> sneakers) {
         this.cartSneakers = sneakers;
+        sneakerRepository = SneakerRepository.getInstance();
     }
 
     @NonNull
@@ -40,11 +41,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.sneakerImage.setImageResource(String.valueOf(cartSneakers.get(position).getImage()));
-        Glide.with(holder.itemView).load(cartSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(cartSneakers.get(position).getModelName());
+        Glide.with(holder.itemView).load(cartSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerPrice.setText("$" + Integer.toString(cartSneakers.get(position).getPrice()));
 
-        sneakerRepository = SneakerRepository.getInstance();
         Sneaker currentSneaker = cartSneakers.get(position);
 
         holder.deleteFromCart.setOnClickListener(c -> toDeleteFromCart(c, currentSneaker));
