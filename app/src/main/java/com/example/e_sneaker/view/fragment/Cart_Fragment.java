@@ -15,10 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.view.adapter.CartAdapter;
-import com.example.e_sneaker.view.adapter.StoreAdapter;
 import com.example.e_sneaker.viewmodel.CartViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Cart_Fragment extends Fragment {
@@ -72,8 +70,6 @@ public class Cart_Fragment extends Fragment {
         cartViewModel.getCartSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {
-                //StoreAdapter storeAdapter = new StoreAdapter(sneakers);
-                //recyclerView.setAdapter(storeAdapter);
                 CartAdapter cartAdapter = new CartAdapter(sneakers);
                 recyclerView.setAdapter(cartAdapter);
             }

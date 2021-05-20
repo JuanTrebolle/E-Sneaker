@@ -8,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.repository.SneakerRepository;
+import com.example.e_sneaker.viewmodel.CartViewModel;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         //holder.sneakerImage.setImageResource(String.valueOf(cartSneakers.get(position).getImage()));
         Glide.with(holder.itemView).load(cartSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(cartSneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf(cartSneakers.get(position).getPrice()));
+        holder.sneakerPrice.setText(String.valueOf("$" + cartSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
         Sneaker toDelete = cartSneakers.get(position);
@@ -50,7 +52,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             public void onClick(View view) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. Name: " + view.findViewById(R.id.itemName));
                 shareIntent.setType("text/plain");
                 view.getContext().startActivity(shareIntent);
             }

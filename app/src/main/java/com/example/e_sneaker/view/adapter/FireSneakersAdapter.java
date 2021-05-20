@@ -42,22 +42,20 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
         Glide.with(holder.itemView).load(fireSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(fireSneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf(fireSneakers.get(position).getPrice()));
+        holder.sneakerPrice.setText(String.valueOf("$" + fireSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
-
         Sneaker toDelete = fireSneakers.get(position);
 
         //click on delete button
         holder.deleteFromFire.setOnClickListener(d -> toDeleteFromFireList(d, toDelete));
-
         //click on Share button
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. Name: " + view.findViewById(R.id.itemName));
                 shareIntent.setType("text/plain");
                 view.getContext().startActivity(shareIntent);
             }

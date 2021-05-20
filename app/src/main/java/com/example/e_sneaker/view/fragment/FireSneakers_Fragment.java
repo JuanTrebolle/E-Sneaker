@@ -12,16 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
-import com.example.e_sneaker.view.MainActivity;
 import com.example.e_sneaker.view.adapter.FireSneakersAdapter;
-import com.example.e_sneaker.view.adapter.StoreAdapter;
 import com.example.e_sneaker.viewmodel.FireViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FireSneakers_Fragment extends Fragment {
@@ -82,8 +78,6 @@ public class FireSneakers_Fragment extends Fragment {
                 rv_fire.setAdapter(fireSneakersAdapter);
             }
         });
-
-        //sneakers = new ArrayList<>();
 
         return view;
     }
