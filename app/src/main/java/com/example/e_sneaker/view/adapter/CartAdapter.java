@@ -41,7 +41,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         //holder.sneakerImage.setImageResource(String.valueOf(cartSneakers.get(position).getImage()));
         Glide.with(holder.itemView).load(cartSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(cartSneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf("$" + cartSneakers.get(position).getPrice()));
+        holder.sneakerPrice.setText("$" + Integer.toString(cartSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
         Sneaker toDelete = cartSneakers.get(position);

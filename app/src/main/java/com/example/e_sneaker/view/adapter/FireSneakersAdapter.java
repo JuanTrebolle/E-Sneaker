@@ -42,7 +42,7 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         //holder.sneakerImage.setImageResource(sneakers.get(position).getImage());
         Glide.with(holder.itemView).load(fireSneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerName.setText(fireSneakers.get(position).getModelName());
-        holder.sneakerPrice.setText(String.valueOf("$" + fireSneakers.get(position).getPrice()));
+        holder.sneakerPrice.setText("$" + Integer.toString(fireSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
         Sneaker toDelete = fireSneakers.get(position);

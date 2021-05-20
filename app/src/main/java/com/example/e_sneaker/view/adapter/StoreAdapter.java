@@ -53,7 +53,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.sneakerName.setText(sneakers.get(position).getModelName());
-        //Glide.with(MainActivity.this).load(pokemon.getImageUrl()).into(ImageView);
         Glide.with(holder.itemView).load(sneakers.get(position).getImage()).into(holder.sneakerImage);
         holder.sneakerPrice.setText("$" + Integer.toString(sneakers.get(position).getPrice()));
 
