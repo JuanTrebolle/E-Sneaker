@@ -9,8 +9,6 @@ import com.example.e_sneaker.dao.UserDAO;
 import com.example.e_sneaker.model.Sneaker;
 import com.example.e_sneaker.remote.ServiceGenerator;
 import com.example.e_sneaker.remote.SneakersApi;
-import com.firebase.ui.auth.data.model.User;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;

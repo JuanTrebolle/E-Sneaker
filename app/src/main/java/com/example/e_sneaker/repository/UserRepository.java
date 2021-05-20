@@ -3,7 +3,6 @@ package com.example.e_sneaker.repository;
 import android.app.Application;
 import androidx.lifecycle.LiveData;
 
-import com.example.e_sneaker.dao.UserDAO;
 import com.example.e_sneaker.model.UserLiveData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

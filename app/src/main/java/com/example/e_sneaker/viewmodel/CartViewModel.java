@@ -22,9 +22,4 @@ public class CartViewModel extends ViewModel {
     public void addToCartList(Sneaker sneaker){
         sneakerRepository.addToCart(sneaker);
     }
-
-    /* Done in SneakerRepository instead
-    public void deleteFromCartList(Sneaker sneaker){
-        sneakerRepository.deleteFromCart(sneaker);
-    }*/
 }
