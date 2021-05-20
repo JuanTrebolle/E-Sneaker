@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -22,7 +23,7 @@ import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
 
 public class Cart_Fragment extends Fragment {
     RecyclerView recyclerView;
-    //List<Sneaker> sneakers;
+    MutableLiveData<List<Sneaker>> cartSneakers;
     CartAdapter cartAdapter;
     CartViewModel cartViewModel;
 
@@ -40,17 +41,17 @@ public class Cart_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cartViewModel = new CartViewModel();
+        cartSneakers = new MutableLiveData<>();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
-
         recyclerView = view.findViewById(R.id.rv_cart);
-
+        
         cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
+
         cartViewModel.getCartSneakersList().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
             public void onChanged(List<Sneaker> sneakers) {

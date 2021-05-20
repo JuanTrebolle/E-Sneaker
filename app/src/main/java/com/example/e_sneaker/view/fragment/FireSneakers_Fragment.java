@@ -7,14 +7,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.model.Sneaker;
@@ -35,7 +32,7 @@ public class FireSneakers_Fragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static FireSneakers_Fragment newInstance(String param1, String param2) {
+    public static FireSneakers_Fragment newInstance() {
         FireSneakers_Fragment fragment = new FireSneakers_Fragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -45,7 +42,6 @@ public class FireSneakers_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //fireViewModel = new FireViewModel();
         fireSneakers = new MutableLiveData<>();
     }
 

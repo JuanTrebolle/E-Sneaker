@@ -12,15 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.e_sneaker.R;
 import com.example.e_sneaker.view.adapter.StoreAdapter;
 import com.example.e_sneaker.viewmodel.StoreViewModel;
 import com.example.e_sneaker.model.Sneaker;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.recyclerview.widget.LinearLayoutManager.VERTICAL;
@@ -30,9 +27,6 @@ public class Store_Fragment extends Fragment {
     StoreViewModel storeViewModel;
     MutableLiveData<List<Sneaker>> sneakers;
     StoreAdapter storeAdapter;
-
-    //Button addToFireListButton;
-    //Button addToCartButton;
 
     public Store_Fragment(){
         //Required empty constructor
@@ -60,9 +54,6 @@ public class Store_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_store);
 
         storeViewModel = new ViewModelProvider(this).get(StoreViewModel.class);
-
-        //addToFireListButton = view.findViewById(R.id.addToFireList);
-        //addToCartButton = view.findViewById(R.id.addToCartList);
 
         storeViewModel.getFireSneakers().observe(getViewLifecycleOwner(), new Observer<List<Sneaker>>() {
             @Override
