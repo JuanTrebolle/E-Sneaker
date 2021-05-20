@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,15 +45,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.sneakerPrice.setText("$" + Integer.toString(cartSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
-        Sneaker toDelete = cartSneakers.get(position);
+        Sneaker currentSneaker = cartSneakers.get(position);
 
-        holder.deleteFromCart.setOnClickListener(c -> toDeleteFromCart(c, toDelete));
+        holder.deleteFromCart.setOnClickListener(c -> toDeleteFromCart(c, currentSneaker));
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. Name: " + view.findViewById(R.id.itemName));
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. \nName: " + currentSneaker.getModelName() + "\nPrice: $" + currentSneaker.getPrice());
                 shareIntent.setType("text/plain");
                 view.getContext().startActivity(shareIntent);
             }
@@ -73,8 +74,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        ImageView share;
-        ImageView deleteFromCart;
+        Button share;
+        Button deleteFromCart;
 
         ViewHolder(View itemView){
             super(itemView);

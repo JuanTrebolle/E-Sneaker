@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,17 +46,17 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         holder.sneakerPrice.setText("$" + Integer.toString(fireSneakers.get(position).getPrice()));
 
         sneakerRepository = SneakerRepository.getInstance();
-        Sneaker toDelete = fireSneakers.get(position);
+        Sneaker currentSneaker = fireSneakers.get(position);
 
         //click on delete button
-        holder.deleteFromFire.setOnClickListener(d -> toDeleteFromFireList(d, toDelete));
+        holder.deleteFromFire.setOnClickListener(d -> toDeleteFromFireList(d, currentSneaker));
         //click on Share button
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. Name: " + view.findViewById(R.id.itemName));
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this sneaker from E-Sneaker 🔥🔥🔥. \nName: " + currentSneaker.getModelName() + "\nPrice: $" + currentSneaker.getPrice());
                 shareIntent.setType("text/plain");
                 view.getContext().startActivity(shareIntent);
             }
@@ -75,8 +76,8 @@ public class FireSneakersAdapter extends RecyclerView.Adapter<FireSneakersAdapte
         TextView sneakerName;
         ImageView sneakerImage;
         TextView sneakerPrice;
-        ImageView deleteFromFire;
-        ImageView share;
+        Button deleteFromFire;
+        Button share;
 
         ViewHolder(View itemView){
             super(itemView);
