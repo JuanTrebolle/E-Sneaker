@@ -15,20 +15,31 @@ Once you've chosen the sneakers, you will be able to pay with the payment detail
 
 ## MoSCoW Requirements:
 
-###### Must Have
-[] Users login
-[] Users see a feed with sneakers
-[] Users have favorite sneakers
+###### Must Have ######
+[x] Users login
+[x] Users see a feed with sneakers
+[x] Users have favorite sneakers
+[x] Users have a shopping cart
 
-###### Should Have
+###### Should Have ######
 [] Users can save payment information
 [] Users can edit their profile
-[]
+[x] Users can see their information
 
-###### Could Have
-[] Users have different views for their feed, based on their favorite brands, on the most liked sneakers or random sneakers.
-[] Users could share their favorites on social media.
+###### Could Have ######
+[-] Users have different views for their feed, based on their favorite brands, on the most liked sneakers or random sneakers.
+[x] Users could share their favorites on social media.
 [] The app could have security.
 
-###### Won't Have
-[] Users won't be able to pay.
+###### Won't Have ######
+- Users won't be able to pay.
+
+
+
+## Look into the UI
+<img width="272" alt="Screenshot 2021-05-20 at 20 35 31" src="https://user-images.githubusercontent.com/19228336/119031203-2074be00-b9ab-11eb-98ea-f38fecd6ad77.png">
+
+
+
+#### License & Copyright ####
+© Juan Trebolle
