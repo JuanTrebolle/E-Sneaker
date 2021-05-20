@@ -1,6 +1,6 @@
 # E-Sneaker
 
-E-Sneaker is an e-commerce app for android with the hottest sneakers  🔥🔥
+E-Sneaker is an e-commerce app for android with the hottest sneakers  🔥🔥. <br/> Watch the presentation! https://youtu.be/0OjiSuxNNE4
 
 ## Description
 Nowadays there's a booming market when it comes to original/exclusive items, specially sneakers.
