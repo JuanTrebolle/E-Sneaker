@@ -59,9 +59,16 @@ public class SneakerRepository {
                 } else {
                     ArrayList<Sneaker> trySneaker = new ArrayList<>();
 
-                    trySneaker.add(new Sneaker(1234, "Nike", 120, "Nike", ""));
-                    trySneaker.add(new Sneaker(12345, "Jordan", 120, "Nike", ""));
-                    trySneaker.add(new Sneaker(123467, "Puma", 120, "Nike", ""));
+                    trySneaker.add(new Sneaker(1, "Jordan 1 Retro High Pollen", 170, "Jordan", "https://images.stockx.com/images/Air-Jordan-1-Retro-High-Pollen.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1619481956"));
+                    trySneaker.add(new Sneaker(12, "adidas Yeezy 500 Taupe Light", 200, "Adidas", "https://images.stockx.com/images/adidas-Yeezy-500-Taupe-Light.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620285344"));
+                    trySneaker.add(new Sneaker(123, "Court Borough Low 2 Black University Red (GS)", 65, "Nike", "https://images.stockx.com/images/Nike-Court-Borough-Low-2-Black-University-Red-GS-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620407068"));
+                    trySneaker.add(new Sneaker(1234, "adidas Yeezy Boost 700 Enflame Amber", 240,"Adidas", "https://images.stockx.com/images/adidas-Yeezy-Boost-700-Enflame-Amber.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620285285"));
+                    trySneaker.add(new Sneaker(12345, "Nike Air Force 1 Low Fresh", 110, "Nike", "https://images.stockx.com/images/Nike-Air-Force-1-Low-Fresh.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620868623"));
+                    trySneaker.add(new Sneaker(123456, "Reebok Club C Power Rangers Yellow", 95, "Reebok", "https://images.stockx.com/images/Reebok-Club-C-Power-Rangers-Yellow.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620285324"));
+                    trySneaker.add(new Sneaker(1234567, "Vans Old Skool Parks Project Checkerboard", 70, "Vans", "https://images.stockx.com/images/Vans-Old-Skool-Parks-Project-Checkerboard.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1621038021"));
+                    trySneaker.add(new Sneaker(12345678, "Reebok Club C Cardi Aqua Dust (GS)", 100, "Reebok", "https://images.stockx.com/images/Reebok-Club-C-Cardi-Aqua-Dust-GS.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1621038012"));
+                    trySneaker.add(new Sneaker(123456789, "Nike LeBron 18 Light Blue Multicolor", 200, "Nike", "https://images.stockx.com/images/Nike-LeBron-18-Light-Blue-Multicolor.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1621004190"));
+                    trySneaker.add(new Sneaker(1234567890, "Jordan 5 Retro Low Wings", 190, "Jordan", "https://images.stockx.com/images/Air-Jordan-5-Retro-Low-Class-of-2020-2021.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1620083215"));
 
                     allSneakers.setValue(trySneaker);
                 }
@@ -112,7 +119,7 @@ public class SneakerRepository {
 
     //CART-SNEAKERS
     public MutableLiveData<List<Sneaker>> getCartSneakers() {
-        return cartSneakers;
+        return sneakerDAO.getCartSneakers();
     }
 
     public void addToCart(Sneaker sneaker) {
