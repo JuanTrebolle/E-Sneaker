@@ -39,55 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //inputEmail = findViewById(R.id.inputEmail);
-        //inputPassword = findViewById(R.id.inputPassword);
         loginButton = this.findViewById(R.id.loginButton);
-        //registerButton = this.findViewById(R.id.registerButton);
-
-        /*registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String getEmail = inputEmail.getText().toString();
-                String getPassword = inputPassword.getText().toString();
-                firebaseAuth.createUserWithEmailAndPassword(getEmail, getPassword)
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, "User Account Created", Toast.LENGTH_SHORT).show();
-                        goToMainActivity();
-                    }
-                })
-                        .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String getEmail = inputEmail.getText().toString();
-                String getPassword = inputPassword.getText().toString();
-
-                firebaseAuth.signInWithEmailAndPassword(getEmail, getPassword)
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                        goToMainActivity();
-                    }
-                })
-                        .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "Login Failed :(", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });*/
 
         checkIfSignedIn();
         setContentView(R.layout.activity_login);
